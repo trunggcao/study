@@ -12,8 +12,9 @@ const TodoNew = (props) => {
     }
     //
     const handleOnClick = () => {
-        console.log(">> Check input:", valueInput)
-        alert(valueInput)
+        // console.log(">> Check input:", valueInput)
+        // alert(valueInput)
+        addNewToDo(valueInput)
     }
     return (
         <div className='todo-input'>
