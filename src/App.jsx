@@ -9,8 +9,7 @@ const App = () => {
   const myAge = 21;
 
   const [todoList, setTodoList] = useState([
-    { id: 1, name: "Learning React" },
-    { id: 2, name: "Cua may em ghe dit bu." }
+
   ])
 
   const addNewToDo = (name) => {
@@ -21,6 +20,12 @@ const App = () => {
     }
     setTodoList([...todoList, newTodo])
   }
+
+  const deleteToDo = (value) => {
+    const result = todoList.filter(item => item.id !== value)
+    setTodoList(result)
+  }
+
 
   function randomIntFromInterval(min, max) { // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -34,14 +39,21 @@ const App = () => {
         <TodoNew
           addNewToDo={addNewToDo}
         />
-        <TodoBody
-          myName={myName}
-          myAge={myAge}
-          todoList={todoList}
-        />
-        <div className='todo-logo'>
-          <img src={LogoImg} className='logo' />
-        </div>
+        {todoList.length > 0 ?
+          <TodoBody
+            myName={myName}
+            myAge={myAge}
+            todoList={todoList}
+            deleteToDo={deleteToDo}
+          />
+
+          :
+          <div className='todo-logo'>
+            <img src={LogoImg} className='logo' />
+          </div>
+        }
+
+
       </div>
 
     </>

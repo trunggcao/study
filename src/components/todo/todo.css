@@ -1,5 +1,6 @@
 .title {
-    margin-left: 200px;
+    display: flex;
+    justify-content: center;
     font-size: 30px;
     font-weight: bold;
     color: rgb(255, 204, 27);
