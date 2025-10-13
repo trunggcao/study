@@ -60,3 +60,9 @@
         animation: logo-spin infinite 20s linear;
     }
 }
+
+.todo-item {
+    margin: 5px 5px 5px 5px;
+    display: flex;
+    justify-content: space-between;
+}

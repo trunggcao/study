@@ -15,11 +15,13 @@ const TodoNew = (props) => {
         // console.log(">> Check input:", valueInput)
         // alert(valueInput)
         addNewToDo(valueInput)
+        setValueInput("")
     }
     return (
         <div className='todo-input'>
             <input type="text"
-                onChange={(event) => handleOnChange(event.target.value)} />
+                onChange={(event) => handleOnChange(event.target.value)}
+                value={valueInput} />
             <button className="btn btn-primary btn-new"
                 onClick={() => handleOnClick()}>ADD</button>
             <div>My data input is: {valueInput}</div>
