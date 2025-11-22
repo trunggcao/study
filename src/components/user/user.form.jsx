@@ -4,8 +4,10 @@ import { CreateUserAPI } from "../../service/api.service";
 
 
 
-const UserForm = () => {
+const UserForm = (props) => {
 
+
+    const { loadAllUser } = props
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [api, contextHolder] = notification.useNotification();
     const [username, setUsername] = useState("");
@@ -20,6 +22,12 @@ const UserForm = () => {
         setIsModalOpen(false);
     };
 
+    const resetAndCloseModal = () => {
+        setIsModalOpen(false);
+        setUsername("");
+        setEmail("");
+
+    }
 
 
     const hanldeBtnClick = async () => {
@@ -29,7 +37,8 @@ const UserForm = () => {
                 message: "Create user",
                 description: "Create success"
             })
-            setIsModalOpen(false)
+            resetAndCloseModal()
+            await loadAllUser();
         } else {
             api.error({
                 message: "Error create user",
