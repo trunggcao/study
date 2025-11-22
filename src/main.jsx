@@ -1,5 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { App as AntApp } from "antd";
+
+
 
 import App from './App.jsx'
 import {
@@ -12,6 +15,7 @@ import UserPage from './pages/user.jsx';
 import ProductPage from './pages/product.jsx';
 import TodoApp from './components/todo/TodoApp.jsx';
 import ErrorPage from './pages/error.jsx';
+import "antd/dist/reset.css";
 
 const router = createBrowserRouter([
   {
@@ -45,7 +49,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* <App /> */}
-    <RouterProvider router={router} />
-  </StrictMode>,
+    <AntApp>
+      <RouterProvider router={router} />
+    </AntApp>
+  </StrictMode>
 )
